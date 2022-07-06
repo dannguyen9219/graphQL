@@ -4,13 +4,14 @@ Root Query - allows us to jump into our graph to get data; entry point to our da
 */
 
 const graphql = require('graphql');
-const _ = require('lodash'); // Helper library that allows us to walk through collections of data
+// const _ = require('lodash'); // Helper library that allows us to walk through collections of data; don't neet lodash if using db.json because lodash is used for static data
+const axios = require('axios');
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphql;
 
-const users = [
-    { id: '23', firstName: 'Bill', age: 20 },
-    { id: '47', firstName: 'Samantha', age: 21 }
-];
+// const users = [
+//     { id: '23', firstName: 'Bill', age: 20 },
+//     { id: '47', firstName: 'Samantha', age: 21 }
+// ];
 
 const UserType = new GraphQLObjectType(
     {
@@ -31,7 +32,8 @@ const RootQuery = new GraphQLObjectType(
                 type: UserType,
                 args: { id: { type: GraphQLString } },
                 resolve(parentValue, args) {
-                    return _.find(users, { id: args.id });
+                    return axios.get(`http://localhost:3000/users/${args.id}`)
+                    .then(resp => resp.data); // This is making axios work nicely with GraphQL
                 }
             }
         }
