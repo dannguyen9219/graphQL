@@ -18,5 +18,8 @@ How do we use GraphQL?
 - On the browser, the user makes a HTTP request, which goes to Express, and then Express sends a response to the browser to the user
 - In GraphQL - Express determines of the request is asking for GraphQL. If yes, then Express sends request to GraphQL server, then sends back to Express, and then sends response back to browser
 
+// Mutations //
+- Allows us to change the data in some way, usually by adding a user and deleting a user
+
 
 */
