@@ -17,9 +17,14 @@ How do we use GraphQL?
 // Review of Express //
 - On the browser, the user makes a HTTP request, which goes to Express, and then Express sends a response to the browser to the user
 - In GraphQL - Express determines of the request is asking for GraphQL. If yes, then Express sends request to GraphQL server, then sends back to Express, and then sends response back to browser
+- GraphQL Express is used for the backend because it is far less likely to get big API changes in the future. 
 
 // Mutations //
 - Allows us to change the data in some way, usually by adding a user and deleting a user
 
+// GraphQL Clients //
+- Lokka - As simple as possible. Basic queries, mutations. Some simple caching. Ability to make requests to the GraphQL backend and get some response back. Caching is performance tool 
+- Apollo Client - Produced by the same guys as Meteor JS. Good balance between features and complexity. Full stack use for GraphQL. Apollo runs on the frontend/browser. 
+- Relay - Amazingly performance for mobile. By far the most insanely complex. Used by Facebook. 
 
 */
